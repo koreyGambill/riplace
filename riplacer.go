@@ -79,13 +79,14 @@ func main() {
 	flag.Parse()
 
 	interpretedFindText := interpretEscapes(findText)
+	interpretedReplaceText := interpretEscapes(replaceText)
 
 	if pattern == "" || interpretedFindText == "" || replaceText == "" {
 		fmt.Println("Usage: replace -p <pattern> [-hidden] [-i] -f <find> -r <replace>")
 		os.Exit(1)
 	}
 
-	err := processFiles(pattern, interpretedFindText, replaceText, includeHidden)
+	err := processFiles(pattern, interpretedFindText, interpretedReplaceText, includeHidden)
 	if err != nil {
 		log.Fatalf("Error processing files: %s", err)
 	}
