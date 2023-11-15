@@ -2,7 +2,8 @@
 
 `rp` (short for "riplace") is a command-line utility designed for multiline find and replace across files. Inspired by the blazing-fast search capabilities of "ripgrep", rp brings similar speed and efficiency to the task of replacing text.
 
-# examples
+# Examples
+
 Simple Replacement:
 
 ``` bash
@@ -26,3 +27,9 @@ Multi-line Replacement:
 ``` bash
 rp -p "*.sql" -f "SELECT * FROM users" -r "SELECT * FROM active_users"
 ```
+
+# Future Features
+
+* wildcard matching for find block
+* capture groups for the replace block
+* build find and replace chunks from text in a file
