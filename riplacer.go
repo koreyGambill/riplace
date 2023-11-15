@@ -1,10 +1,8 @@
 package main
 
 import (
-	// "bufio"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
@@ -16,14 +14,14 @@ func interpretEscapes(s string) string {
 }
 
 func replaceInFile(filePath string, findText string, replaceText string) error {
-	content, err := ioutil.ReadFile(filePath)
+	content, err := os.ReadFile(filePath)
 	if err != nil {
 		return err
 	}
 
 	updatedContent := strings.ReplaceAll(string(content), findText, replaceText)
 
-	err = ioutil.WriteFile(filePath, []byte(updatedContent), 0644)
+	err = os.WriteFile(filePath, []byte(updatedContent), 0644)
 	return err
 }
 
